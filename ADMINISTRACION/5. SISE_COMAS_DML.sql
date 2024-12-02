@@ -1,3 +1,5 @@
+-- CUALES SON: SELECT, INSERT, UPDATE, DELETE
+
 INSERT ALL
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (1, 'TV', 'Televisores pequeños y portátiles')
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (2, 'Micro', 'Microondas compactos y eficientes')
@@ -49,4 +51,45 @@ INSERT ALL
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (48, 'Control', 'Controles remotos universales')
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (49, 'Linterna', 'Linternas LED recargables')
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (50, 'Cargador', 'Cargadores rápidos y compactos')
+SELECT 1 FROM DUAL; 
+COMMIT;
+
+INSERT ALL
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (1, 'TV LED 32"', 1)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (2, 'TV Smart 40"', 1)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (3, 'Monitor 24"', 1)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (4, 'Proyector HD', 1)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (5, 'Repetidor Wi-Fi', 1)*/
+
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (6, 'Microondas 20L', 2)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (7, 'Horno Eléctrico', 2)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (8, 'Freidora Aire', 2)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (9, 'Olla Lenta', 2)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (10, 'Tostador Doble', 2)
+
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (11, 'Licuadora 2 Vel.', 3)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (12, 'Batidora Portátil', 3)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (13, 'Procesador Alim.', 3)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (14, 'Exprimidor Eléc.', 3)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (15, 'Extractor Zumo', 3)
+
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (16, 'Ventilador Mesa', 4)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (17, 'Purificador Aire', 4)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (18, 'Calefactor Pers.', 4)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (19, 'Enfriador Aire', 4)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (20, 'Deshumidificador', 4)
+
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (21, 'Secador Cabello', 5)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (22, 'Rizador Portátil', 5)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (23, 'Cortapelo Rec.', 5)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (24, 'Plancha Vapor', 5)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (25, 'Plancha Vertical', 5)
+
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (26, 'Cafetera 2 Tazas', 6)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (27, 'Molino Café', 6)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (28, 'Hervidor Agua', 6)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (29, 'Mezclador Mini', 6)
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (30, 'Termo Eléctrico', 6)*/
 SELECT 1 FROM DUAL;
+COMMIT;
+
