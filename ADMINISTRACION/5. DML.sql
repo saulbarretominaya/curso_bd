@@ -96,8 +96,6 @@ SELECT 1 FROM DUAL;
 COMMIT;
 
 -- TRABAJADORES
- INSERT INTO trabajadores (id_trabajador, nombre_trabajador, sueldo) VALUES (1, 'Carmen Torres', 2345);
-
 INSERT ALL
     INTO trabajadores (id_trabajador, nombre_trabajador, sueldo) VALUES (1, 'Carmen Torres', 2345)
     INTO trabajadores (id_trabajador, nombre_trabajador, sueldo) VALUES (2, 'Diego Jiménez', 5552)
