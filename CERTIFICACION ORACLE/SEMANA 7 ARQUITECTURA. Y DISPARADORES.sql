@@ -1,0 +1,7 @@
+-- ARQUITECTURA DE ORACLE
+-- ¿Qué es la arquitectura STANDALONE?
+-- ¿Qué es la arquitectura RAC?
+-- ¿Cómo se administra la memoria y los procesos de usuario?
+-- ¿Qué acciones realiza la SHARED POOL?
+-- ¿Qué será la DATABASE CACHE?
+-- ¿Y la PGA qué es?
