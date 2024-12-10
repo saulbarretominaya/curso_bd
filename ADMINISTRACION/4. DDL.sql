@@ -21,3 +21,18 @@ create table trabajadores (
    nombre_trabajador varchar2(200),
    sueldo            number(10,2)
 );
+
+create table parametros (
+   id_parametro number primary key,
+   descripcion  varchar2(200),
+   codigo       varchar2(50) not null unique
+);
+
+create table detalle_parametros (
+   id_dparametro number primary key,
+   descripcion   varchar2(200),
+   codigo        varchar2(50) not null unique,
+   id_parametro  number,
+   constraint fk_id_parametro foreign key ( id_parametro )
+      references parametros ( id_parametro )
+);

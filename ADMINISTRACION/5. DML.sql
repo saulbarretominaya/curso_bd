@@ -91,7 +91,7 @@ INSERT ALL
     INTO productos (id_producto, nombre_producto, id_categoria) VALUES (27, 'Molino Café', 6)
     INTO productos (id_producto, nombre_producto, id_categoria) VALUES (28, 'Hervidor Agua', 6)
     INTO productos (id_producto, nombre_producto, id_categoria) VALUES (29, 'Mezclador Mini', 6)
-    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (30, 'Termo Eléctrico', 6)*/
+    INTO productos (id_producto, nombre_producto, id_categoria) VALUES (30, 'Termo Eléctrico', 6)
 SELECT 1 FROM DUAL;
 COMMIT;
 
@@ -198,5 +198,35 @@ INSERT ALL
     INTO trabajadores (id_trabajador, nombre_trabajador, sueldo) VALUES (99, 'Claudia Castro', 3700)
     INTO trabajadores (id_trabajador, nombre_trabajador, sueldo) VALUES (100, 'Juan Pérez', 6000)
 SELECT 1 FROM DUAL;
+COMMIT;
+
+-- PARAMETROS
+INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (1,'Genero','001');
+INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (2,'Tipo Documento','002');
+INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (3,'Cargo','003');
+INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (4,'Tipo Moneda','004');
+INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (5,'Estado Civil','005');
+
+
+-- DETALLE PARAMETROS
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (1, 'Masculino', 'GEN-O1', 1);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (2, 'Femenino', 'GEN-O2', 1);
+
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (3, 'DNI', 'TDOCUMENTO-01', 2);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (4, 'Pasaporte', 'TDOCUMENTO-02', 2);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (5, 'Carnet de Extranjería', 'TDOCUMENTO-03', 2);
+
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (6, 'Administrador', 'CARGO-01', 3);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (7, 'Vendedor', 'CARGO-02', 3);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (8, 'Soporte Técnico', 'CARGO-03', 3);
+
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (9, 'Soles', 'TMONEDA-01', 4);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (10, 'Dolar', 'TMONEDA-02', 4);
+
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Soltero', 'ESTADOC-01', 5);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Casado', 'ESTADOC-02', 5);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Viudo', 'ESTADOC-02', 5);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Divorsiado', 'ESTADOC-04', 5);
+
 COMMIT;
 

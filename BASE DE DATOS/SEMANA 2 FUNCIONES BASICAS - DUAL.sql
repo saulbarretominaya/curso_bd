@@ -17,7 +17,7 @@ select ascii('A') from dual;
 -- Devuelve cad1 concatenada con cad2. Esta función es equivalente al operador ||.
 SELECT 'HOLA ' || 'MUNDO'  FROM DUAL;
 -- Devuelve la cadena cad con todas sus letras convertidas a minúsculas.
-Select lower('MinUsCulAs') from dual;
+Select lower('Hola Mundo') from dual;
 -- Devuelve la cadena cad con todas susletras convertidas a mayúsculas.
 Select upper('maYuSCulAs') from dual;
 -- Devuelve cad con el primer carácter en mayúsculas.
