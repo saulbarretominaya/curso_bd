@@ -43,24 +43,27 @@ create table clientes (
 );
 
 create table ventas (
-   id_venta    number primary key,
-   id_cliente  number,
-   sub_total   number(10,2),
-   monto_total number(10,2),
-   fecha date default sysdate,
+   id_venta      number primary key,
+   id_cliente    number,
+   id_trabajador number,
+   sub_total     number(10,2),
+   monto_total   number(10,2),
+   fecha         date default sysdate,
    constraint fk_id_cliente foreign key ( id_cliente )
-      references clientes ( id_cliente )
+      references clientes ( id_cliente ),
+   constraint fk_id_trabajador foreign key ( id_trabajador )
+      references clientes ( id_trabajador )
 );
 
 create table detalle_ventas (
-   id_dventa number primary key,
-   id_venta  number,
-   id_producto number,
+   id_dventa       number primary key,
+   id_venta        number,
+   id_producto     number,
    precio_unitario number(10,2),
-   cantidad varchar2(10),
-   sub_total number(10,2),
-   constraint fk_id_venta foreign key (id_venta) 
-   references ventas (id_venta),
-    constraint fk_id_producto foreign key (id_producto) 
-   references productos (id_producto)
+   cantidad        varchar2(10),
+   sub_total       number(10,2),
+   constraint fk_id_venta foreign key ( id_venta )
+      references ventas ( id_venta ),
+   constraint fk_id_producto foreign key ( id_producto )
+      references productos ( id_producto )
 );

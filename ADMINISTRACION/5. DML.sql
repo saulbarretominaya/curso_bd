@@ -206,27 +206,22 @@ INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (2,'Tipo Documen
 INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (3,'Cargo','003');
 INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (4,'Tipo Moneda','004');
 INSERT INTO parametros (id_parametro,descripcion,codigo) VALUES (5,'Estado Civil','005');
-
+COMMIT;
 
 -- DETALLE PARAMETROS
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (1, 'Masculino', 'GEN-O1', 1);
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (2, 'Femenino', 'GEN-O2', 1);
-
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (3, 'DNI', 'TDOCUMENTO-01', 2);
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (4, 'Pasaporte', 'TDOCUMENTO-02', 2);
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (5, 'Carnet de Extranjería', 'TDOCUMENTO-03', 2);
-
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (6, 'Administrador', 'CARGO-01', 3);
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (7, 'Vendedor', 'CARGO-02', 3);
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (8, 'Soporte Técnico', 'CARGO-03', 3);
-
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (9, 'Soles', 'TMONEDA-01', 4);
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (10, 'Dolar', 'TMONEDA-02', 4);
-
 INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Soltero', 'ESTADOC-01', 5);
-INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Casado', 'ESTADOC-02', 5);
-INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Viudo', 'ESTADOC-02', 5);
-INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (11, 'Divorsiado', 'ESTADOC-04', 5);
-
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (12, 'Casado', 'ESTADOC-02', 5);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (13, 'Viudo', 'ESTADOC-03', 5);
+INSERT INTO detalle_parametros (id_dparametro, descripcion, codigo, id_parametro) VALUES (14, 'Divorsiado', 'ESTADOC-04', 5);
 COMMIT;
 
