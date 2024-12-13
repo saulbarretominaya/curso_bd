@@ -52,7 +52,7 @@ create table ventas (
    constraint fk_id_cliente foreign key ( id_cliente )
       references clientes ( id_cliente ),
    constraint fk_id_trabajador foreign key ( id_trabajador )
-      references clientes ( id_trabajador )
+      references trabajadores ( id_trabajador )
 );
 
 create table detalle_ventas (
