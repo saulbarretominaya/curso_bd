@@ -19,3 +19,17 @@
 -- PGA: Almacena datos temporales y específicos de cada sesión de usuario, ayudando a optimizar la ejecución de consultas.
 
 -- En resumen, la arquitectura de Oracle se organiza para optimizar la memoria, la disponibilidad y el rendimiento en la gestión de bases de datos.
+
+
+CREATE OR REPLACE TRIGGER trg_clientes 
+    BEFORE INSERT ON clientes
+    FOR EACH ROW 
+    BEGIN
+        INSERT INTO auditoria_clientes (id_cliente, nombre, ape_materno, ape_paterno, accion )
+        VALUES(:NEW.id_cliente, :NEW.nombre, :NEW.ape_materno, :NEW.ape_paterno, 'INSERT');
+    END
+;
+
+insert into clientes (id_cliente,nombre,ape_materno,ape_paterno) values ('13','Pedro','Lopez','Muñoz');
+
+
