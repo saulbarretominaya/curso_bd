@@ -1,0 +1,1 @@
+-- ORA-01017 => Verificar el Service Name en SQL Developer.

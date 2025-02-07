@@ -13,7 +13,7 @@
     
     -- Opcion 2: Instalar SQL Developer
 
--- 2. Trabajando con la Metadata
+-- 2. Trabajando con la Metadata:  Es la información que describe la estructura, organización y características de los objetos dentro de una base de datos. Esto incluye información sobre tablas, columnas, índices, restricciones, vistas, usuarios y más.
     -- a) Información sobre la base de datos
     -- SELECT name, open_mode FROM v$database;
     -- b) Listar las tablas en el esquema del usuario
@@ -23,10 +23,10 @@
     -- d) Ver los índices en una tabla
     -- SELECT index_name, table_name FROM user_indexes WHERE table_name = 'EMPLEADOS';
 
-    /*  CREATE TABLE empleados (
-    id NUMBER PRIMARY KEY,
-    nombre VARCHAR2(100),
-    salario NUMBER
-    );
-    */
+        /*  CREATE TABLE empleados (
+        id NUMBER PRIMARY KEY,
+        nombre VARCHAR2(100),
+        salario NUMBER
+        );
+        */
 
