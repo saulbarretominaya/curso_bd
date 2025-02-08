@@ -13,9 +13,11 @@
     
     -- Opcion 2: Instalar SQL Developer
 
+    -- Opcion 3: SQL Plus
+
 -- 2. Trabajando con la Metadata:  Es la información que describe la estructura, organización y características de los objetos dentro de una base de datos. Esto incluye información sobre tablas, columnas, índices, restricciones, vistas, usuarios y más.
     -- a) Información sobre la base de datos
-    -- SELECT name, open_mode FROM v$database;
+    -- SELECT name, open_mode FROM v$database;  
     -- b) Listar las tablas en el esquema del usuario
     -- SELECT table_name FROM user_tables;
     -- c) Obtener las columnas de una tabla
@@ -30,3 +32,18 @@
         );
         */
 
+-- Como crear la tabla parametros y detalle de parametros
+create table parametros (
+   id_parametro number primary key, -- 1
+   descripcion  varchar2(200),  -- TIPO GENERO 
+   codigo       varchar2(50) not null unique -- GEN001
+);
+
+create table detalle_parametros (
+   id_dparametro number primary key, -- 1\2
+   descripcion   varchar2(200), -- MASCULINO\FEMENINO
+   codigo        varchar2(50) not null unique, -- MAS001\FEM001
+   id_parametro  number, -- 1\1
+   constraint fk_id_parametro foreign key ( id_parametro )
+      references parametros ( id_parametro )
+);
