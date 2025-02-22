@@ -8,7 +8,8 @@ NEXT 10M -- Define el incremento de crecimiento del archivo cada vez que se llen
 MAXSIZE 500M -- Especifica el límite máximo al que puede crecer el archivo. (En este ejemplo, el archivo puede crecer hasta 500MB como máximo.)
 
 -- ¿Y como lo creamos? 
--- Paso 1 (Creamos el TABLESPACE)
+-- Paso 1 (Creamos el TABLESPACE) - Con el usuario SYSTEM
+ALTER SESSION SET CONTAINER = XEPDB1;
 CREATE TABLESPACE MI_TABLESPACE 
 DATAFILE 'D:\OracleXE21\oradata\XE\mi_tablespace.dbf' 
 SIZE 100M AUTOEXTEND ON NEXT 10M MAXSIZE 500M;
@@ -16,7 +17,14 @@ SIZE 100M AUTOEXTEND ON NEXT 10M MAXSIZE 500M;
 CREATE USER USUARIO_TABLESPACE IDENTIFIED BY "123"
 DEFAULT TABLESPACE MI_TABLESPACE;
 GRANT DBA TO USUARIO_TABLESPACE; 
--- Paso 3 (Validamos que tenga asignado a su TABLESPACE)
+-- Nos conectamos con el usuario creado y creamos una tabla en el TABLESPACE
+CREATE TABLE mi_tabla (
+    id NUMBER PRIMARY KEY,
+    nombre VARCHAR2(50)
+) TABLESPACE MI_TABLESPACE;
+-- Y por ultimo validamos que la tabla este en su tablespace
+SELECT table_name, tablespace_name FROM dba_tables WHERE owner = 'USUARIO_TABLESPACE';
+-- Lo mismo pero con el usuario
 SELECT username, default_tablespace FROM dba_users WHERE username IN ('USUARIO_TABLESPACE'); 
 
 
@@ -55,7 +63,7 @@ DROP TABLESPACE MI_TABLESPACE INCLUDING CONTENTS AND DATAFILES;
 -- PRIMER PASO
 SHOW CON_NAME; -- Ves la sesion actual de la BD.
 ALTER SESSION SET CONTAINER = CDB$ROOT; 
-CREATE USER   IDENTIFIED BY "123"; -- Creamos el usuario
+CREATE USER C##GLOBAL_USER  IDENTIFIED BY "123"; -- Creamos el usuario
 GRANT DBA TO C##GLOBAL_USER CONTAINER=ALL; -- Le asignamos permisos
 SELECT * FROM dba_tablespaces; -- Ver los tablespace creados
 SELECT username,default_tablespace FROM dba_users WHERE username = 'C##GLOBAL_USER';  -- En que tablespace fue creado el usuario
