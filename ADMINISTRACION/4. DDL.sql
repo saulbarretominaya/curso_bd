@@ -2,13 +2,13 @@
 
 create table categorias (
    id_categoria     number primary key,
-   nombre varchar2(100),
-   descripcion   varchar2(500)
+   nombre_categoria varchar2(100),
+   desc_categoria   varchar2(500)
 );
 
 create table productos (
    id_producto     number primary key,
-   nombre varchar2(100),
+   nombre_producto varchar2(100),
    id_categoria    number,
    constraint fk_id_categoria foreign key ( id_categoria )
       references categorias ( id_categoria )
