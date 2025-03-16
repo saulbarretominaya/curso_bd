@@ -68,7 +68,7 @@ SELECT job_name, state FROM dba_scheduler_jobs WHERE job_name = 'JOB_HOLA_MUNDO'
 -- COMPLETED	=> El job terminó de ejecutarse y no está programado para repetirse.
 
 -- #################################################################################################################################
--- ARCHI LOGS
+-- ARCHIVELOGS
 -- ¿Qué es ARCHIVELOG en Oracle?
 -- El principal objetivo de usar ARCHIVELOG en Oracle es garantizar la recuperación completa de la base de datos en caso de fallos, 
 -- minimizando la pérdida de datos.
