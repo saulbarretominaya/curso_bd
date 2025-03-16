@@ -9,16 +9,16 @@ create table categorias (
    id_categoria     number primary key,
    nombre_categoria varchar2(100),
    desc_categoria   varchar2(500)
-);
-
+)
+/
 create table productos (
    id_producto     number primary key,
    nombre_producto varchar2(100),
    id_categoria    number,
    constraint fk_id_categoria foreign key ( id_categoria )
       references categorias ( id_categoria )
-);
-
+)
+/
 -- INSERCION
 INSERT ALL
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (1, 'TV', 'Televisores pequeños y portátiles')
@@ -73,7 +73,7 @@ INSERT ALL
     INTO categorias (id_categoria, nombre_categoria, desc_categoria) VALUES (50, 'Cargador', 'Cargadores rápidos y compactos')
 SELECT 1 FROM DUAL; 
 COMMIT;
-
+/
 INSERT ALL
     INTO productos (id_producto, nombre_producto, id_categoria) VALUES (1, 'TV LED 32"', 1)
     INTO productos (id_producto, nombre_producto, id_categoria) VALUES (2, 'TV Smart 40"', 1)
@@ -112,7 +112,7 @@ INSERT ALL
     INTO productos (id_producto, nombre_producto, id_categoria) VALUES (30, 'Termo Eléctrico', 6)
 SELECT 1 FROM DUAL;
 COMMIT;
-
+/
 -- CREAMOS UN PROCEDIMIENTO ALMACENADO
 create or replace procedure proc_insertar_categorias (
    p_id_categoria     in number,
@@ -124,17 +124,17 @@ begin
    values (p_id_categoria,p_nombre_categoria,p_desc_categoria);
    commit;
 end;
-
+/
 begin
    proc_insertar_categorias(51,'Reposteros','Reportero de 4x4, color marrón');
    proc_insertar_categorias(52,'Mesa','Mesa de plastico');
 end;
-
+/
 -- CREAMOS UN PAQUETE
 CREATE OR REPLACE PACKAGE pkg_categorias AS
    PROCEDURE proc_insertar_categorias (p_id_categoria NUMBER,p_nombre_categoria VARCHAR2,p_desc_categoria VARCHAR2);
 END pkg_categorias;
-
+/
 CREATE OR REPLACE PACKAGE BODY pkg_categorias AS
   PROCEDURE proc_insertar_categorias (
     p_id_categoria     NUMBER,
@@ -147,13 +147,13 @@ CREATE OR REPLACE PACKAGE BODY pkg_categorias AS
     COMMIT;
   END proc_insertar_categorias;
 END pkg_categorias;
-
+/
 BEGIN
   pkg_categorias.proc_insertar_categorias(53, 'Categoria A', 'Descripción A');
 END;
 
 -- ################################################################################################################
-
+-- (OPCIONES PARA REALIZAR COPIAS DE SEGURIDAD)
 -- 1 OPCION (POR SQL DEVELOPER)
 -- SELECCIONAR EL OBJETO, EJEMPLO UNA TABLA
 -- CLIC DERECHO, EXPORTAR
@@ -179,7 +179,6 @@ SELECT DBMS_METADATA.GET_DDL('VIEW', VIEW_NAME, 'NOMBRE_ESQUEMA') FROM USER_VIEW
 
 -- Crear paquetes, procedimientos y funciones
 SELECT DBMS_METADATA.GET_DDL('PACKAGE', OBJECT_NAME, 'NOMBRE_ESQUEMA') FROM USER_PROCEDURES WHERE OBJECT_TYPE = 'PACKAGE';
-SELECT DBMS_METADATA.GET_DDL('PACKAGE_BODY', OBJECT_NAME, 'NOMBRE_ESQUEMA') FROM USER_PROCEDURES WHERE OBJECT_TYPE = 'PACKAGE BODY';
 SELECT DBMS_METADATA.GET_DDL('PROCEDURE', OBJECT_NAME, 'NOMBRE_ESQUEMA') FROM USER_PROCEDURES WHERE OBJECT_TYPE = 'PROCEDURE';
 SELECT DBMS_METADATA.GET_DDL('FUNCTION', OBJECT_NAME, 'NOMBRE_ESQUEMA') FROM USER_PROCEDURES WHERE OBJECT_TYPE = 'FUNCTION';
 
@@ -195,12 +194,16 @@ SELECT DBMS_METADATA.GET_DDL('SYNONYM', SYNONYM_NAME, 'NOMBRE_ESQUEMA') FROM USE
 -- Ruta por defecto de Data Pump en Oracle XE 21c: D:\ORACLEXE21\ADMIN\XE\DPDUMP\ 
 -- Clic derecho y abrir en Terminal
 
+-- (ESTO SOLO TE TRAERA ESTRUCTURA)
 -- Paso 1: Exportar la base de datos (Solo estructura) a un archivo .dmp
 -- expdp C##SUCURSALES/123@XE schemas=C##SUCURSALES dumpfile=backup.dmp logfile=backup.log
-
 -- Paso 2: Convertir el .dmp en un archivo .sql 
 -- impdp C##SUCURSALES/123@XE dumpfile=backup.dmp sqlfile=backup.sql
 
+-- (ESTO TE TRAERA ESTRUCTURA MAS DATOS, ES LO RECOMENDADO)
+-- expdp C##SUCURSALES/123@XE schemas=C##SUCURSALES dumpfile=backup1.dmp logfile=backup1.log CONTENT=ALL EXCLUDE=USER
+-- impdp C##TEST/123@XE dumpfile=backup1.dmp logfile=restore.log REMAP_SCHEMA=C##SUCURSALES:C##TEST
+-- SELECT * FROM ALL_TABLES WHERE OWNER = 'C##TEST'; (Por ultimo validar con el usuario C##TEST)
 
 
 
