@@ -66,3 +66,30 @@ SELECT job_name, state FROM dba_scheduler_jobs WHERE job_name = 'JOB_HOLA_MUNDO'
 -- DISABLED	    => El job está pausado (no se ejecutará hasta que se habilite de nuevo).
 -- FAILED	    => Hubo un error en la ejecución del job.
 -- COMPLETED	=> El job terminó de ejecutarse y no está programado para repetirse.
+
+-- #################################################################################################################################
+-- ARCHI LOGS
+-- ¿Qué es ARCHIVELOG en Oracle?
+-- El principal objetivo de usar ARCHIVELOG en Oracle es garantizar la recuperación completa de la base de datos en caso de fallos, 
+-- minimizando la pérdida de datos.
+
+-- ¿Cómo verificar el estado de ARCHIVELOG?
+-- ARCHIVE LOG LIST; o SELECT LOG_MODE FROM V$DATABASE;
+-- Si dice "Modo de Archivado: Activado", la base está en ARCHIVELOG.
+-- Si dice "Modo de No Archivado", la base está en NOARCHIVELOG.
+
+-- Usuarios con permisos para cambiar ARCHIVELOG (Se recomienda hacer por sql plus)
+-- El usuario SYSDBA es el único que puede modificar el modo ARCHIVELOG.
+-- sqlplus / as sysdba
+
+-- Poner en Modo ARCHIVELOG:
+-- SHUTDOWN IMMEDIATE;
+-- STARTUP MOUNT;
+-- ALTER DATABASE ARCHIVELOG;
+-- ALTER DATABASE OPEN;
+
+-- Poner en Modo NOARCHIVELOG:
+-- SHUTDOWN IMMEDIATE;
+-- STARTUP MOUNT;
+-- ALTER DATABASE NOARCHIVELOG;
+-- ALTER DATABASE OPEN;
