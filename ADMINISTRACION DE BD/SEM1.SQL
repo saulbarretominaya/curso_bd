@@ -1,11 +1,11 @@
--- a) Instalador => https://docs.google.com/document/d/1i0mQTCcHqFbsyJZmZlNWNflNFYEX_0TdSjwU3VvjRmc/edit?usp=sharing
+-- a) Instalador Oracle  => https://docs.google.com/document/d/1i0mQTCcHqFbsyJZmZlNWNflNFYEX_0TdSjwU3VvjRmc/edit?usp=sharing
 -- b) Errores de instalacion => https://docs.google.com/document/d/1aI5df8xnmTP1QdTgC5TdcoIYCc0c42e9pLpEPj_TgDY/edit?usp=drive_link
 
 -- #ARQUITECTURA DE ORACLE
--- La arquitectura de una base de datos Oracle se compone de tres elementos principales:
--- La  instancia, que incluye estructuras de memoria y procesos.
--- La base de datos, compuesta por archivos físicos almacenados en disco.
--- Los procesos del usuario, que interactúan con la instancia para ejecutar operaciones.
+    -- La arquitectura de una base de datos Oracle se compone de tres elementos principales:
+        -- La  instancia, que incluye estructuras de memoria y procesos.
+        -- La base de datos, compuesta por archivos físicos almacenados en disco.
+        -- Los procesos del usuario, que interactúan con la instancia para ejecutar operaciones.
 
 -- #1. Procesos del usuario y del servidor "PGA (Program Global Area)""
     -- Cuando un usuario ejecuta una consulta en Oracle, se crea un user process que se comunica con un server process. 
