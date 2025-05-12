@@ -20,9 +20,10 @@
 -- 2.2 Backup Lógico (Dump - Data Pump)
 -- Este tipo de backup exporta los datos y metadatos a un archivo .dmp, que luego puede importarse en otra base de datos. 
 -- Se realiza con Oracle Data Pump (EXPDP/IMPDP) y abarca:
--- ✅ Tablas, esquemas y usuarios.
--- ✅ Procedimientos almacenados, funciones y triggers.
--- ✅ Roles y privilegios asignados a los objetos exportados.
+-- ✅ Esquema SUCURSALES:
+    -- ✅ Tablas y usuarios.
+    -- ✅ Procedimientos almacenados, funciones y triggers.
+    -- ✅ Roles y privilegios asignados a los objetos exportados.
 
 -- 3. Proceso de Backup y Restore
 -- 3.1 Backup y Restore con RMAN

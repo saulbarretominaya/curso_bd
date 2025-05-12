@@ -14,10 +14,14 @@ CREATE TABLESPACE MI_TABLESPACE
 DATAFILE 'D:\OracleXE21\oradata\XE\mi_tablespace.dbf' 
 SIZE 100M AUTOEXTEND ON NEXT 10M MAXSIZE 500M;
 -- Paso 2 (Creamos el usuario y lo asignamos al TABLESPACE)
-CREATE USER USUARIO_TABLESPACE IDENTIFIED BY "123"
-DEFAULT TABLESPACE MI_TABLESPACE;
+CREATE USER USUARIO_TABLESPACE IDENTIFIED BY "123" DEFAULT TABLESPACE MI_TABLESPACE;
 GRANT DBA TO USUARIO_TABLESPACE; 
--- Nos conectamos con el usuario creado y creamos una tabla en el TABLESPACE
+-- Nos conectamos con el usuario creado (SQL DEVELOPER) y creamos una tabla en el TABLESPACE
+-- 1. Username: USUARIO_TABLESPACE
+-- 2. Password: 123
+-- 3. Hostname: localhost (o el IP de tu servidor Oracle)
+-- 4. Port: 1521 (por defecto)
+-- 5. Service Name: XEPDB1 ✅ (no XE ni CDB$ROOT)
 CREATE TABLE mi_tabla (
     id NUMBER PRIMARY KEY,
     nombre VARCHAR2(50)
@@ -80,13 +84,7 @@ SELECT username, common FROM dba_users WHERE username IN ('C##GLOBAL_USER', 'USU
 SELECT * FROM C##GLOBAL_USER.test_global;
 
 
--- COMO INGRESAR CON EL USUARIO XEPDB1 EN SQL DEVELOPER
--- Al crear la conexión en SQL Developer, revisa estos campos:
--- 1. Username: usuario_local
--- 2. Password: 123
--- 3. Hostname: localhost (o el IP de tu servidor Oracle)
--- 4. Port: 1521 (por defecto)
--- 5. Service Name: XEPDB1 ✅ (no XE ni CDB$ROOT)
+
 
 
 -- ################################################################################################################
@@ -109,4 +107,4 @@ SELECT 'ESTRELLA' FROM dual;
 -- MINUS: MUESTRA EL PRIMER SELECT SI SON DIFERENTES, SI SON IGUALES VACIO
 SELECT 'SOL' AS OBJETO FROM dual
 MINUS
-SELECT 'LUNA' FROM dual
+SELECT 'LUNA' FROM dual;

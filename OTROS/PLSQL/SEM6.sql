@@ -158,7 +158,7 @@ END;
 -- SELECCIONAR EL OBJETO, EJEMPLO UNA TABLA
 -- CLIC DERECHO, EXPORTAR
 
--- 2 OPCION (POR QUERY)
+-- 2 OPCION (POR QUERY) SE DEBE REALIZAR CON EL USUARIO SYSTEM
 -- Crear usuarios (si es necesario)
 SELECT DBMS_METADATA.GET_DDL('USER', USERNAME) FROM DBA_USERS;
 
@@ -167,6 +167,8 @@ SELECT DBMS_METADATA.GET_DDL('SEQUENCE', SEQUENCE_NAME, 'NOMBRE_ESQUEMA') FROM U
 
 -- Crear tablas
 SELECT DBMS_METADATA.GET_DDL('TABLE', TABLE_NAME, 'NOMBRE_ESQUEMA') FROM USER_TABLES;
+SELECT DBMS_METADATA.GET_DDL('TABLE', TABLE_NAME, 'C##ESQUEMA_A') FROM USER_TABLES; -- Recuperas todos los objetos del esquema A
+
 
 -- Crear restricciones referenciales (Claves foráneas)
 SELECT DBMS_METADATA.GET_DDL('REF_CONSTRAINT', CONSTRAINT_NAME, 'NOMBRE_ESQUEMA') FROM USER_CONSTRAINTS WHERE CONSTRAINT_TYPE = 'R';
@@ -194,16 +196,18 @@ SELECT DBMS_METADATA.GET_DDL('SYNONYM', SYNONYM_NAME, 'NOMBRE_ESQUEMA') FROM USE
 -- Ruta por defecto de Data Pump en Oracle XE 21c: D:\ORACLEXE21\ADMIN\XE\DPDUMP\ 
 -- Clic derecho y abrir en Terminal
 
--- (ESTO SOLO TE TRAERA ESTRUCTURA)
+-- (ESTO SOLO TE TRAERA ESTRUCTURA DE ACUERDO A LA SEMANA 5, SI NO QUE EL ARCHIVO .DMP TE LO CONVIERTE EN UN ARCHIVO .SQL)
 -- Paso 1: Exportar la base de datos (Solo estructura) a un archivo .dmp
--- expdp C##SUCURSALES/123@XE schemas=C##SUCURSALES dumpfile=backup.dmp logfile=backup.log
--- Paso 2: Convertir el .dmp en un archivo .sql 
--- impdp C##SUCURSALES/123@XE dumpfile=backup.dmp sqlfile=backup.sql
+-- expdp C##SUCURSALES/123@XE schemas= dumpfile=backup.dmp logfile=backup.log
+-- Paso 2: Convertir el .dmp en un archivo C##SUCURSALES.sql 
+-- impdp C##SUCURSALES/123@XE dumpfile=backup.dmp sqlfile=backup.sql 
 
 -- (ESTO TE TRAERA ESTRUCTURA MAS DATOS, ES LO RECOMENDADO)
 -- expdp C##SUCURSALES/123@XE schemas=C##SUCURSALES dumpfile=backup1.dmp logfile=backup1.log CONTENT=ALL EXCLUDE=USER
 -- impdp C##TEST/123@XE dumpfile=backup1.dmp logfile=restore.log REMAP_SCHEMA=C##SUCURSALES:C##TEST
 -- SELECT * FROM ALL_TABLES WHERE OWNER = 'C##TEST'; (Por ultimo validar con el usuario C##TEST)
 
-
+-- expdp C##SUCURSALES/123@XE schemas=C##SUCURSALES dumpfile=backup1.dmp logfile=backup1.log CONTENT=ALL EXCLUDE=USER
+-- impdp C##TEST/123@XE dumpfile=backup1.dmp logfile=restore.log REMAP_SCHEMA=C##SUCURSALES:C##TEST
+-- SELECT * FROM ALL_TABLES WHERE OWNER = 'C##TEST'; (Por ultimo validar con el usuario C##TEST)
 
